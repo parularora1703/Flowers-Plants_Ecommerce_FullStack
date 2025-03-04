@@ -1,17 +1,17 @@
 require("dotenv").config();
 const express = require("express");
 const router = express.Router();
-const User = require("../model/user.model");
-const Address = require("../model/address.model");
-const { uploadSingle } = require("../middleware/upload");
+const User = require("../models/user.model");
+const Address = require("../models/address.model");
+const { uploadSingle } = require("../middlewares/upload");
 const jwt = require("jsonwebtoken");
 const fs = require("fs");
 const path = require("path");
 const { sendPasswordResetVerificationEmail } = require("../utils/utils");
 const { response } = require("express");
-const { hashPassword, comparePassword } = require("../utils/password.utils");
-const authenticate = require("../middleware/authenticate");
-const authorization = require("../middleware/authorization");
+const { hashPassword, comparePassword } = require("../utils/passwordUtil.js");
+const authenticate = require("../middlewares/authenticate");
+const authorization = require("../middlewares/authorization");
 //** relationship start */
 
 router.get("/", async (req, res) => {
